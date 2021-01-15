@@ -8,18 +8,18 @@ public class MoviesData {
     String movietitle;
     String releasedate;
     String videoreleasedate;
-    String url;
+//    String url;
     ArrayList<Integer> genre=new ArrayList<Integer>();
     MoviesData(){
     }
 
-    public MoviesData(int movieid,String movietitle,String releasedate,String videoreleasedate,String url,ArrayList<Integer> genre)
+    public MoviesData(int movieid,String movietitle,String releasedate,String videoreleasedate,ArrayList<Integer> genre)
     {
         this.movieid=movieid;
         this.movietitle=movietitle;
         this.releasedate=releasedate;
         this.videoreleasedate=videoreleasedate;
-        this.url=url;
+//        this.url=url;
         this.genre=genre;
     }
 
@@ -55,13 +55,13 @@ public class MoviesData {
         return videoreleasedate;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+//    public void setUrl(String url) {
+//        this.url = url;
+//    }
 
-    public String getUrl() {
-        return url;
-    }
+//    public String getUrl() {
+//        return url;
+//    }
 
     public void setGenre(ArrayList<Integer> genre) {
         this.genre = genre;
@@ -74,7 +74,7 @@ public class MoviesData {
     public String toString()
     {
         return String.format("Movie id: "+movieid+"Movie title: "+movietitle+"Release date:"+releasedate+
-                "Video release date:"+videoreleasedate+"URL:"+url+"Genre"+genre);
+                "Video release date:"+videoreleasedate+"Genre"+genre);
 
     }
 

@@ -77,42 +77,37 @@ public class ReadData {
                 user.add(ud);
             }
         }
-//        System.out.println(user.get(0));
+//        System.out.println(user.get(942));
 //        System.out.println("Hello,It worked");
     }
     public static void getmovies(String link4) throws IOException
     {
-        Scanner in = null;
-        try {
-            in = new Scanner(new File(link4));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        BufferedReader br = new BufferedReader(new FileReader(link4));
+        String line;
         movie = new ArrayList<MoviesData>();
-        while (in.hasNextLine()) {
+        while ((line = br.readLine()) != null) {
+            if (line.length() == 0)
+                continue;
             MoviesData md = new MoviesData();
-            String arr[] = in.nextLine().split("[|]");
+            String arr[] = line.split("[|]");
 
-            ArrayList<Integer> genre1=new ArrayList<Integer>();
-            if (arr.length > 0) {
-                md.setMovieid(Integer.parseInt(arr[0]));
-                md.setMovietitle(arr[1]);
-                md.setReleasedate(arr[2]);
-                md.setVideoreleasedate(arr[3]);
-                md.setUrl(arr[4]);
+            ArrayList<Integer> genre1 = new ArrayList<Integer>();
+            md.setMovieid(Integer.parseInt(arr[0]));
+            md.setMovietitle(arr[1]);
+            md.setReleasedate(arr[2]);
+            md.setVideoreleasedate(arr[3]);
+//                md.setUrl(arr[4]);
 
-            for(int i=5;i< arr.length;i++){
-              genre1.add(Integer.parseInt(arr[i]));
-                }
-
-//            System.out.println(genre1);
-
-                md.setGenre(genre1);
-              movie.add(md);
+            for (int i = 5; i < arr.length; i++) {
+                genre1.add(Integer.parseInt(arr[i]));
             }
+
+            System.out.println(genre1);
+
+            md.setGenre(genre1);
+            movie.add(md);
         }
-//
-//        System.out.println(movie.get(0));
+//        System.out.println(movie.get(1681));
 //        System.out.println("Hello,It worked");
     }
 
