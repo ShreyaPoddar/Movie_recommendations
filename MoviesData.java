@@ -9,11 +9,11 @@ public class MoviesData {
     String releasedate;
     String videoreleasedate;
     String url;
-    Set<Integer> genre;
+    ArrayList<Integer> genre=new ArrayList<Integer>();
     MoviesData(){
     }
 
-    public MoviesData(int movieid,String movietitle,String releasedate,String videoreleasedate,String url,Set<Integer> genre)
+    public MoviesData(int movieid,String movietitle,String releasedate,String videoreleasedate,String url,ArrayList<Integer> genre)
     {
         this.movieid=movieid;
         this.movietitle=movietitle;
@@ -63,11 +63,11 @@ public class MoviesData {
         return url;
     }
 
-    public void setGenre(Set<Integer> genre) {
+    public void setGenre(ArrayList<Integer> genre) {
         this.genre = genre;
     }
 
-    public Set<Integer> getGenre() {
+    public ArrayList<Integer> getGenre() {
         return genre;
     }
     @Override
