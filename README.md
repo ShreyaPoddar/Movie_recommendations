@@ -24,9 +24,6 @@ You are given 4 files -
        The user ids are the ones used in the u.data data set.
 
 
-
-
-
 Warm Up Problems : 
 ============
 == Top Movie By Genre
