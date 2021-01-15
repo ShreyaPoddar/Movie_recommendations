@@ -56,12 +56,36 @@ public class ReadData {
 //        System.out.println(genredata.get(0));
 //        System.out.println("Hello,It worked");
 }
+    public static void getuserdata(String link3)
+    {
+        Scanner in = null;
+        try {
+            in = new Scanner(new File(link3));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        user = new ArrayList<UserData>();
+        while (in.hasNextLine()) {
+            UserData ud = new UserData();
+            String arr[] = in.nextLine().split("\\|");
+            if (arr.length > 1) {
+                ud.setUserid(Integer.parseInt(arr[0]));
+                ud.setAge(Integer.parseInt(arr[1]));
+                ud.setGender(arr[2]);
+                ud.setOccupation(arr[3]);
+                ud.setZipcode(arr[4]);
+                user.add(ud);
+            }
+        }
+//        System.out.println(user.get(0));
+//        System.out.println("Hello,It worked");
+    }
 public static void main(String[] args)throws IOException
 {
 //    ReadData rData=new ReadData();
     getrating("D:/Downloads/Assignment1/ratings.data");
     getgenre("D:/Downloads/Assignment1/genre.data");
-
+    getuserdata("D:/Downloads/Assignment1/user.data");
 }
 }
 
