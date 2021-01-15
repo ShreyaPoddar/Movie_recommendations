@@ -80,12 +80,49 @@ public class ReadData {
 //        System.out.println(user.get(0));
 //        System.out.println("Hello,It worked");
     }
+    public static void getmovies(String link4) throws IOException
+    {
+        Scanner in = null;
+        try {
+            in = new Scanner(new File(link4));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        movie = new ArrayList<MoviesData>();
+        while (in.hasNextLine()) {
+            MoviesData md = new MoviesData();
+            String arr[] = in.nextLine().split("[|]");
+
+            ArrayList<Integer> genre1=new ArrayList<Integer>();
+            if (arr.length > 0) {
+                md.setMovieid(Integer.parseInt(arr[0]));
+                md.setMovietitle(arr[1]);
+                md.setReleasedate(arr[2]);
+                md.setVideoreleasedate(arr[3]);
+                md.setUrl(arr[4]);
+
+            for(int i=5;i< arr.length;i++){
+              genre1.add(Integer.parseInt(arr[i]));
+                }
+
+//            System.out.println(genre1);
+
+                md.setGenre(genre1);
+              movie.add(md);
+            }
+        }
+//
+//        System.out.println(movie.get(0));
+//        System.out.println("Hello,It worked");
+    }
+
 public static void main(String[] args)throws IOException
 {
 //    ReadData rData=new ReadData();
     getrating("D:/Downloads/Assignment1/ratings.data");
     getgenre("D:/Downloads/Assignment1/genre.data");
     getuserdata("D:/Downloads/Assignment1/user.data");
+    getmovies("D:/Downloads/Assignment1/movie.data");
 }
 }
 
